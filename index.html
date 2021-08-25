@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Fake Internet Money DISCLAIMER</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="true">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta id="header-theme" name="theme-color" content="#000000">
+
+    <meta name="twitter:image" content="https://steviep.xyz/fake-internet-money/30000068.png">
+    <meta name="og:image" property="og:image" content="https://steviep.xyz/fake-internet-money/30000068.png">
+    <meta name="og:image:alt" content="Fake Internet Money test mint 68">
+    <meta name="title" content="Fake Internet Money DISCLAIMER">
+    <meta name="og:title" content="Fake Internet Money DISCLAIMER">
+    <meta name="twitter:title" content="Fake Internet Money DISCLAIMER">
+    <meta property="og:site_name" content="Fake Internet Money">
+
+    <meta name="description" content="Fake Internet Money is not legal tender, and may not be redeemable or exchangeable with other parties or markets following its initial offering...">
+    <meta name="og:description" content="Fake Internet Money is not legal tender, and may not be redeemable or exchangeable with other parties or markets following its initial offering...">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://steviep.xyz/fake-internet-money">
+    <meta name="twitter:url" content="https://steviep.xyz/fake-internet-money">
+    <meta name="keywords" content="fake, internet, money, fake internet money, nft, nfts, art, blocks, art blocks, cryptogodking, steviep, steve, pikelny, steve pikelny, generative, currency">
+
+
+    <script src="./min.p5.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap" rel="stylesheet">
+
+
+
+
+    <style type="text/css">
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: 'black';
+        font-family: 'Shippori Mincho B1', serif;
+      }
+
+      canvas {
+        padding: 0;
+        margin: auto;
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        animation: fadein 3s;
+      }
+
+      #overlay {
+        z-index: 2;
+        background: linear-gradient(0deg, rgba(0,0,0,0.55), rgba(0,0,0,0.8));
+        color: #fff;
+        text-shadow: 2px 2px #000;
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        overflow: scroll;
+        transition: 500ms;
+        animation: fadein 2s;
+        /*padding-bottom: 1em;*/
+      }
+
+      .slim {
+        max-width: 800px;
+        padding: 10px;
+        margin: auto;
+        text-align: justify;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 4em;
+      }
+
+      /*h2 {
+        text-transform: uppercase;
+      }*/
+
+      @keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+    </style>
+
+
+  </head>
+  <body>
+    <div id="overlay">
+      <div class="slim">
+        <h1>Fake Internet Money</h1>
+        <h2>Fake Internet Money is not legal tender, and may not be redeemable or exchangeable with other parties or markets following its initial offering. The Artist is not a licensed or registered money transmitter in any district, state, or country. The Money is not a financial security. The Artist makes no claims of adding any further value to the project. Owners of The Money have no reasonable expectation of profit. Any marketing statements made by The Artist should not be taken as investment advice. The secondary market value of The Money may be highly volatile, and The Artist makes no guarantees regarding its liquidity or stability relative to any crypto or fiat currency. All value derived from The Money is entirely subjective. All code is licensed under a Creative Commons Attribution-NonCommercial 4.0 License, and is provided without warranty of any kind. In no event shall The Artist be held liable for any damages arising from the code or resulting tokens. The typeface is derived from Shippori Mincho B1, which is licensed under a SIL Open Font License.</h2>
+
+      </div>
+
+  </body>
+
+  <script src="./rosette.js"></script>
+
+  <script>
+    let rnd, font
+
+    // function preload() {
+    //   font = loadFont('./ShipporiMinchoB1-Regular.ttf');
+    // }
+    function setup() {
+      const size = min(window.innerWidth, window.innerHeight)
+      __canvas = createCanvas(window.innerWidth, window.innerHeight);
+      rnd = random
+
+      noLoop()
+      colorMode(HSB, 360, 100, 100, 100)
+
+      setColors()
+      document.body.style.backgroundColor = DARK_C.toString()
+      document.getElementById('overlay').style.color = LIGHT_C.toString()
+      document.getElementById('overlay').style.textShadow = DARK_C.toString()
+    }
+
+    function draw() {
+      console.log('0')
+      translate(width/2, height/2)
+      background(ROSETTE_FILL_C)
+
+
+      // rosetteWithBackground(-width/2,-height/2,min(width, height)/2)
+      // console.log('1')
+      // rosetteWithBackground(width/2,-height/2,min(width, height)/2)
+      // console.log('2')
+      // rosetteWithBackground(width/2,height/2,min(width, height)/2)
+      rosetteWithBackground(0,0,max(width, height))
+
+
+
+
+
+
+      // FLYER
+
+      // textFont(font)
+      // rosetteWithBackground(0,0,min(width, height)*0.45)
+      // rosetteWithBackground(0,0, 250, 0, {
+      //   strokeC: LIGHT_C,
+      //   innerC: LIGHTENED_DARK_C,
+      //   outterC: DARK_C,
+      //   holeR: 230
+      // })
+
+      // textAlign(CENTER)
+      // textSize(60)
+
+      // drawTitle(0, 0)
+
+
+    }
+
+    function keyPressed() {
+      if (keyCode === 83) {
+        saveCanvas(__canvas, 'FIM-flyer-' + Date.now(), 'jpg');
+      }
+    }
+
+
+    function drawTitle(x, y) {
+      stroke(DARK_C)
+      fill(LIGHT_C)
+      const lineHeight = 80
+      const offset = 2
+      strokeWeight(2)
+      text('Fake', x+offset, y+offset-lineHeight)
+      text('Fake', x, y-lineHeight)
+
+      text('Internet', x+offset, y+offset)
+      text('Internet', x, y)
+
+      text('Money', x+offset, y+offset+lineHeight)
+      text('Money', x, y+lineHeight)
+    }
+  </script>
+
+
+
+</html>
