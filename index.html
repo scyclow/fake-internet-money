@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Fake Internet Money DISCLAIMER</title>
+    <title>Fake Internet Money</title>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,9 +13,9 @@
     <meta name="twitter:image" content="https://steviep.xyz/fake-internet-money/30000068.png">
     <meta name="og:image" property="og:image" content="https://steviep.xyz/fake-internet-money/30000068.png">
     <meta name="og:image:alt" content="Fake Internet Money test mint 68">
-    <meta name="title" content="Fake Internet Money DISCLAIMER">
-    <meta name="og:title" content="Fake Internet Money DISCLAIMER">
-    <meta name="twitter:title" content="Fake Internet Money DISCLAIMER">
+    <meta name="title" content="Fake Internet Money">
+    <meta name="og:title" content="Fake Internet Money">
+    <meta name="twitter:title" content="Fake Internet Money">
     <meta property="og:site_name" content="Fake Internet Money">
 
     <meta name="description" content="Fake Internet Money is not legal tender, and may not be redeemable or exchangeable with other parties or markets following its initial offering...">
@@ -78,8 +78,24 @@
       }
 
       h1 {
-        text-align: center;
         font-size: 4em;
+      }
+
+      h1, h2, h3 {
+        text-align: center;
+        margin-bottom: 0;
+      }
+      h2 {
+        margin-top: 0.3em;
+        font-size: 3em;
+      }
+
+      h3 a {
+        color: #fff;
+        text-shadow: 0 0;
+      }
+      p {
+        font-size: 25px;
       }
 
       /*h2 {
@@ -90,6 +106,16 @@
         from { opacity: 0; }
         to   { opacity: 1; }
       }
+
+      @media (max-width: 700px) {
+        h1 {
+          font-size: 3em;
+        }
+
+        h2 {
+          font-size: 2em;
+        }
+      }
     </style>
 
 
@@ -98,7 +124,11 @@
     <div id="overlay">
       <div class="slim">
         <h1>Fake Internet Money</h1>
-        <h2>Fake Internet Money is not legal tender, and may not be redeemable or exchangeable with other parties or markets following its initial offering. The Artist is not a licensed or registered money transmitter in any district, state, or country. The Money is not a financial security. The Artist makes no claims of adding any further value to the project. Owners of The Money have no reasonable expectation of profit. Any marketing statements made by The Artist should not be taken as investment advice. The secondary market value of The Money may be highly volatile, and The Artist makes no guarantees regarding its liquidity or stability relative to any crypto or fiat currency. All value derived from The Money is entirely subjective. All code is licensed under a Creative Commons Attribution-NonCommercial 4.0 License, and is provided without warranty of any kind. In no event shall The Artist be held liable for any damages arising from the code or resulting tokens. The typeface is derived from Shippori Mincho B1, which is licensed under a SIL Open Font License.</h2>
+        <h2 id="timeLeft"></h2>
+        <h3>Mint on <a href="https://artblocks.io/project/152" target="_blank">artblocks.io</a></h3>
+        <h3><a href="https://cryptogateway.0ms.co/fake-internet-money" target="_blank">Read the interview with the artist</a></h3>
+
+        <p>Fake Internet Money is not legal tender, and may not be redeemable or exchangeable with other parties or markets following its initial offering. The Artist is not a licensed or registered money transmitter in any district, state, or country. The Money is not a financial security. The Artist makes no claims of adding any further value to the project. Owners of The Money have no reasonable expectation of profit. Any marketing statements made by The Artist should not be taken as investment advice. The secondary market value of The Money may be highly volatile, and The Artist makes no guarantees regarding its liquidity or stability relative to any crypto or fiat currency. All value derived from The Money is entirely subjective. All code is licensed under a Creative Commons Attribution-NonCommercial 4.0 License, and is provided without warranty of any kind. In no event shall The Artist be held liable for any damages arising from the code or resulting tokens. The typeface is derived from Shippori Mincho B1, which is licensed under a SIL Open Font License.</p>
 
       </div>
 
@@ -185,6 +215,36 @@
       text('Money', x+offset, y+offset+lineHeight)
       text('Money', x, y+lineHeight)
     }
+
+
+
+
+
+
+    const fmt = (n) => {
+      const r = Math.floor(n)
+      if (r < 10) return '0' + r
+      else return '' + r
+    }
+    const dropTime = new Date('2021-09-01T20:00:00.000Z').getTime()
+    const setDropTime = () => {
+      const now = Date.now()
+      const diff = Math.max(dropTime - now, 0)
+
+      const d = diff / 86400000
+      const h = (d - Math.floor(d)) * 24
+      const m = (h - Math.floor(h)) * 60
+      const s = (m - Math.floor(m)) * 60
+
+
+      const timeLeft = d && h && m && s
+        ? `${fmt(d)}:${fmt(h)}:${fmt(m)}:${fmt(s)}`
+        : ''
+
+      document.getElementById('timeLeft').innerHTML = timeLeft
+    }
+    setInterval(setDropTime, 1000)
+    setDropTime()
   </script>
 
 
